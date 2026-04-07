@@ -34,3 +34,5 @@ The model successfully learned the underlying patterns of customer retention and
    `pip install -r requirements.txt`
 3. Start the Streamlit server:
    `streamlit run app.py`
+## The actual link to the streamline app 
+* **https://bank-churn-ml-project-nh76mpvb6qcisxtsb3esdj.streamlit.app/
