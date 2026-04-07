@@ -1,31 +1,36 @@
 # Bank Customer Churn Prediction 🏦
 
 ## Overview
-This project is an end-to-end Machine Learning pipeline built to predict whether a customer will leave a bank (churn) based on their demographics and account information. 
+This project is an end-to-end Machine Learning pipeline and interactive web application built to predict whether a bank customer will churn (leave the bank) based on their demographics and account information. 
+
+## Project Architecture
+This project has been upgraded from a procedural script to a production-ready architecture:
+1. **Object-Oriented Pipeline (`oopnew.py`):** The data ingestion, preprocessing, and model training steps are encapsulated within a custom Python Class for reusability.
+2. **Model Persistence:** The trained Logistic Regression model is exported as a `.pkl` file using `joblib`, preventing the need to retrain the model on every run.
+3. **Web Application (`app.py`):** A frontend interface built with Streamlit allows users to input new customer data and receive instant churn predictions.
 
 ## The Dataset
-The data is sourced from a standard Bank Customer Churn dataset. It includes details such as:
+The model was trained on a standard Bank Customer Churn dataset, utilizing features such as:
 * Credit Score
 * Age
 * Account Balance
 * Number of Products
 * Gender 
 
-## Pipeline Steps
-1. **Data Ingestion:** Automatically pulls the raw CSV data directly from a public repository using Pandas.
-2. **Data Cleaning & Preprocessing:**
-   * Dropped irrelevant features (`RowNumber`, `CustomerId`, `Surname`).
-   * Handled missing values by imputing the median for `Age` and `Balance`.
-   * Encoded categorical text data (`Gender`) into machine-readable binary values (0 and 1).
-3. **Data Splitting:** Separated the dataset into an 80% training set and a 20% testing set to prevent data leakage and ensure accurate evaluation.
-4. **Model Training:** Initialized and trained a **Logistic Regression** classification model to identify patterns in customer churn.
-5. **Evaluation:** Tested the model against unseen data.
-
 ## Results
 * **Accuracy:** ~80.00% 
-The model successfully learned the underlying patterns of customer retention and can predict churn on unseen test data with 80% accuracy.
+The model successfully learned the underlying patterns of customer retention and predicts churn on unseen data with 80% accuracy.
 
 ## Tech Stack
-* Python
-* Pandas (Data manipulation)
-* Scikit-Learn (Machine learning & evaluation)
+* **Language:** Python
+* **Data Manipulation:** Pandas
+* **Machine Learning:** Scikit-Learn
+* **Web Framework:** Streamlit
+* **Serialization:** Joblib
+
+## How to Run Locally
+1. Clone the repository to your local machine.
+2. Install the required dependencies:
+   `pip install -r requirements.txt`
+3. Start the Streamlit server:
+   `streamlit run app.py`
