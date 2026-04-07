@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -41,7 +42,10 @@ class BankChurnPipeline:
         print(f"\n--- Final Exam Score ---")
         print(f"Accuracy: {score * 100:.2f}%")
 
-
+    def save_model(self):
+        joblib.dump(self.model, "bank_brain.pkl")
+        print("\n--- Model Saved! ---")
+        print("The brain has been successfully downloaded to your hard drive.")
 
 
 if __name__ == "__main__":
@@ -54,3 +58,4 @@ if __name__ == "__main__":
     my_pipeline.load_and_clean()
     my_pipeline.train()
     my_pipeline.evaluate()
+    my_pipeline.save_model()
